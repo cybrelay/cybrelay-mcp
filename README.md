@@ -26,6 +26,21 @@ Most AI remediation tools ask a large language model to **write** the fix. CybRe
 
 CybRelay is aligned with OWASP, NIS2, ISO 27001 and GDPR: it helps you work towards these frameworks; it does not replace an official audit, and it is not a penetration testing tool.
 
+## Drop the whole project — built for vibe coders too
+
+You do not need to pick files by hand. In the web app, **drop the entire project folder**:
+
+1. **Cleaning.** CybRelay skips what is not your code: `node_modules`, `vendor`, `venv`, `.git`, `dist`, `build`, `.next`, `target`, caches, IDE folders, minified files (`.min.js`, `.min.css`) and source maps. Only source and infrastructure files are analysed (TypeScript/JavaScript, Python, Go, Java, PHP, C#, Ruby, Rust, Terraform, YAML, Dockerfile, shell…). The app shows how many folders and files were set aside.
+2. **Scan.** The engine reads the remaining code, removes duplicates and ranks findings P1 → P4.
+3. **Fix with safety nets.** Each fix script runs in steps:
+   - **dry-run** of the patch first; if it does not apply cleanly, nothing is changed and you get the written guide instead;
+   - patch applied, then **syntax check and your project's tests**;
+   - if the tests fail, the patch is **rolled back automatically**.
+
+This is useful if you build with AI assistants ("vibe coding") without being a security specialist: you get readable explanations and fixes that are checked before they touch your project. It does not replace your own review before you ship.
+
+**Where your code goes.** Analysis runs on Google Cloud in the EU (europe-west1, Belgium). AI advice uses Gemini on **Vertex AI**, Google's enterprise AI platform, in a European region by default. Under Google's terms, data sent to Vertex AI is not used to train or fine-tune models ([Google Cloud documentation](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/data-governance)). CybRelay does not keep your code: content is purged automatically **48 hours** after each analysis; only a trace remains (file name, date, counts, SHA-256).
+
 ## How CybRelay differs from other tools
 
 Facts below come from each vendor's public documentation (links). They describe approaches, not quality rankings.

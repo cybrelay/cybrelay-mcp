@@ -26,6 +26,21 @@ La plupart des outils de remédiation par IA demandent à un grand modèle de la
 
 CybRelay est aligné sur l'OWASP, NIS2, l'ISO 27001 et le RGPD : il aide à travailler vers ces référentiels, il ne remplace pas un audit officiel et ce n'est pas un outil de test d'intrusion.
 
+## Déposez le projet entier — pensé aussi pour le « vibe coding »
+
+Pas besoin de choisir les fichiers un par un. Dans l'application web, **déposez le dossier complet du projet** :
+
+1. **Nettoyage.** CybRelay écarte ce qui n'est pas votre code : `node_modules`, `vendor`, `venv`, `.git`, `dist`, `build`, `.next`, `target`, caches, dossiers d'éditeur, fichiers minifiés (`.min.js`, `.min.css`) et cartes de source. Seuls les fichiers source et d'infrastructure sont analysés (TypeScript/JavaScript, Python, Go, Java, PHP, C#, Ruby, Rust, Terraform, YAML, Dockerfile, shell…). L'application indique combien de dossiers et de fichiers ont été écartés.
+2. **Scan.** Le moteur lit le code restant, fusionne les doublons et classe les failles de P1 à P4.
+3. **Correction avec garde-fous.** Chaque script de correction avance par étapes :
+   - **simulation** du correctif d'abord ; s'il ne s'applique pas proprement, rien n'est modifié et vous recevez le guide écrit à la place ;
+   - application, puis **vérification de la syntaxe et lancement des tests du projet** ;
+   - si les tests échouent, le correctif est **annulé automatiquement**.
+
+C'est utile si vous développez avec des assistants IA (« vibe coding ») sans être spécialiste de la sécurité : explications lisibles, et corrections vérifiées avant de toucher votre projet. Cela ne remplace pas votre propre relecture avant la mise en ligne.
+
+**Où va votre code.** L'analyse tourne sur Google Cloud en Europe (europe-west1, Belgique). Les conseils de l'IA passent par Gemini sur **Vertex AI**, la plateforme d'IA entreprise de Google, dans une région européenne par défaut. Selon les conditions de Google, les données envoyées à Vertex AI ne servent pas à entraîner ni à ajuster des modèles ([documentation Google Cloud](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/data-governance)). CybRelay ne conserve pas votre code : le contenu est purgé automatiquement **48 heures** après chaque analyse ; seule une trace reste (nom du fichier, date, compteurs, SHA-256).
+
 ## Ce qui distingue CybRelay
 
 Les informations ci-dessous viennent de la documentation publique de chaque éditeur (liens). Elles décrivent des approches, pas un classement de qualité.

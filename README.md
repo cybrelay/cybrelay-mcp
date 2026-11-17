@@ -4,6 +4,8 @@
 
 CybRelay is a vulnerability analysis and remediation platform ([cybrelay.com](https://cybrelay.com)). This repository documents its **remote MCP server**, which lets an AI agent (Claude Code, Claude Desktop, Cursor, Windsurf, VS Code, Cline, or your own agent) analyse code, read the findings of your workspace, get a remediation script, and run a passive security scan of a website — all with your workspace API key, paid in credits.
 
+> **First time?** → [Step-by-step guide](GUIDE.md) · [Guide pas à pas (FR)](GUIDE.fr.md)
+
 > This repository contains documentation and configuration examples only. The CybRelay engine is a hosted service; its source code is not published here.
 
 🇫🇷 [Version française](README.fr.md)
@@ -65,7 +67,9 @@ Facts below come from each vendor's public documentation (links). They describe 
 **Authentication:** header `Authorization: Bearer <your CybRelay API key>`
 
 1. Create a free account on [cybrelay.com](https://cybrelay.com) (50 credits offered).
-2. In **Settings → CI/CD Integrations & MCP API → MCP gateway**, generate your workspace API key. It is shown once; store it in your secret manager, never in a committed file.
+2. In **Settings → Company Profile → Organisational API Key**, click 🔄 to generate your workspace API key. It is shown once; store it in an environment variable or your secret manager, never in a committed file.
+
+**New to MCP? Follow the [step-by-step guide](GUIDE.md).**
 3. Add the server to your client (examples below and in [`examples/`](examples/)).
 
 ### Claude Code

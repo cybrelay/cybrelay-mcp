@@ -4,6 +4,8 @@
 
 CybRelay est une plateforme d'analyse et de remédiation de vulnérabilités ([cybrelay.com](https://cybrelay.com)). Ce dépôt documente son **serveur MCP distant** : un agent IA (Claude Code, Claude Desktop, Cursor, Windsurf, VS Code, Cline ou votre propre agent) peut analyser du code, lire les failles de votre espace, obtenir un script de correction et lancer un scan passif d'un site, avec la clé d'API de votre espace, payé en crédits.
 
+> **Première fois ?** → [Guide pas à pas](GUIDE.fr.md) · [Step-by-step guide (EN)](GUIDE.md)
+
 > Ce dépôt ne contient que de la documentation et des exemples de configuration. Le moteur CybRelay est un service hébergé ; son code n'est pas publié ici.
 
 🇬🇧 [English version](README.md)
@@ -65,7 +67,9 @@ Les informations ci-dessous viennent de la documentation publique de chaque édi
 **Authentification :** en-tête `Authorization: Bearer <clé d'API CybRelay>`
 
 1. Créez un compte gratuit sur [cybrelay.com](https://cybrelay.com) (50 crédits offerts).
-2. Dans **Paramètres → Intégrations CI/CD & MCP API → Passerelle MCP**, générez la clé d'API de votre espace. Elle ne s'affiche qu'une fois : gardez-la dans votre gestionnaire de secrets, jamais dans un fichier versionné.
+2. Dans **Paramètres → Fiche Société → Clé d'API Organisationnelle**, cliquez sur 🔄 pour générer la clé d'API de votre espace. Elle ne s'affiche qu'une fois : gardez-la dans une variable d'environnement ou votre gestionnaire de secrets, jamais dans un fichier versionné.
+
+**Débutant avec MCP ? Suivez le [guide pas à pas](GUIDE.fr.md).**
 3. Ajoutez le serveur à votre client : exemples dans la [version anglaise](README.md#connect) et dans [`examples/`](examples/).
 
 ---

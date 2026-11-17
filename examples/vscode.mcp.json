@@ -1,0 +1,12 @@
+{
+  "inputs": [
+    { "type": "promptString", "id": "cybrelay-key", "description": "CybRelay API key", "password": true }
+  ],
+  "servers": {
+    "cybrelay": {
+      "type": "http",
+      "url": "https://api.cybrelay.com/mcp",
+      "headers": { "Authorization": "Bearer ${input:cybrelay-key}" }
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "cybrelay": {
+      "url": "https://api.cybrelay.com/mcp",
+      "headers": { "Authorization": "Bearer ${env:CYBRELAY_API_KEY}" }
+    }
+  }
+}

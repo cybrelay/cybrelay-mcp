@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "cybrelay": {
+      "command": "npx",
+      "args": ["-y", "mcp-remote", "https://api.cybrelay.com/mcp", "--header", "Authorization:${CYBRELAY_AUTH}"],
+      "env": { "CYBRELAY_AUTH": "Bearer <your CybRelay API key>" }
+    }
+  }
+}

@@ -18,10 +18,11 @@ This guide takes you from zero to your first fix in about 10 minutes. No securit
 
 1. In CybRelay, open **Settings** (left menu).
 2. Tab **Company Profile** → box **Organisational API Key**.
-3. Click the **🔄** button, type the confirmation word shown on screen, then confirm.
+3. **Recommended:** in **Additional keys**, type a name (e.g. `claude-code`), choose a duration and click **Create key**. Each tool gets its own key; deleting one never cuts the others.
+   (Or click **🔄** on the main key — this cuts the previous main key immediately.)
 4. Click **Copy**. ⚠️ The key is shown **only once**.
 
-> Already using this key in a CI pipeline? Regenerating it **cuts the old key immediately**: update your CI secret with the new one.
+> Keys per workspace (main key included): Free 2, Starter 3, Pro 10, Enterprise 25.
 
 ## Step 3 — Store the key safely (1 min)
 
@@ -146,6 +147,7 @@ You receive:
 | `429` "Limite atteinte : … appels par minute" | Per-minute limit of your plan | Wait the number of seconds shown, or slow down your agent |
 | `429` "Trop de tentatives…" | Many failed logins from your IP | Fix the key, then wait a few minutes |
 | "Crédits insuffisants" | Not enough credits for this analysis | Top up or subscribe on cybrelay.com; listing and fixes stay free |
+| Directory or client shows tools but every call says "API key required" | Discovery works without a key; tools need one | Add the header `Authorization: Bearer <key>` (step 2) |
 | `405` on `GET /mcp` | Normal: the endpoint only accepts `POST` | Use an MCP client, not a browser |
 | Tools do not appear | Old client without HTTP transport | Use the `mcp-remote` config (Claude Desktop example) or the SSE address `https://api.cybrelay.com/sse` |
 

@@ -18,10 +18,11 @@ Ce guide vous mène de zéro à votre première correction en une dizaine de min
 
 1. Dans CybRelay, ouvrez **Paramètres** (menu de gauche).
 2. Onglet **Fiche Société** → encadré **Clé d'API Organisationnelle**.
-3. Cliquez sur le bouton **🔄**, tapez le mot de confirmation affiché à l'écran, puis validez.
+3. **Conseillé :** dans **Clés supplémentaires**, tapez un nom (par exemple `claude-code`), choisissez une durée et cliquez sur **Créer la clé**. Chaque outil a sa propre clé ; en supprimer une ne coupe jamais les autres.
+   (Ou cliquez sur **🔄** sur la clé principale : cela coupe immédiatement l'ancienne clé principale.)
 4. Cliquez sur **Copier**. ⚠️ La clé ne s'affiche **qu'une seule fois**.
 
-> Vous utilisez déjà cette clé dans un pipeline CI ? La régénérer **coupe immédiatement l'ancienne** : mettez à jour le secret de votre CI.
+> Clés par espace (clé principale comprise) : Découverte 2, Starter 3, Pro 10, Entreprise 25.
 
 ## Étape 3 — Ranger la clé en sécurité (1 min)
 
@@ -146,6 +147,7 @@ Vous recevez :
 | `429` « Limite atteinte : … appels par minute » | Limite par minute de votre offre | Attendez le nombre de secondes indiqué, ou ralentissez votre agent |
 | `429` « Trop de tentatives… » | Nombreux échecs de connexion depuis votre adresse IP | Corrigez la clé, puis patientez quelques minutes |
 | « Crédits insuffisants » | Pas assez de crédits pour cette analyse | Rechargez ou abonnez-vous sur cybrelay.com ; la liste des failles et les corrections restent gratuites |
+| L'annuaire ou le client montre les outils mais chaque appel répond « clé requise » | La découverte marche sans clé ; les outils en exigent une | Ajoutez l'en-tête `Authorization: Bearer <clé>` (étape 2) |
 | `405` sur `GET /mcp` | Normal : l'adresse n'accepte que `POST` | Utilisez un client MCP, pas un navigateur |
 | Les outils n'apparaissent pas | Ancien client sans transport HTTP | Utilisez la configuration `mcp-remote` (exemple Claude Desktop) ou l'adresse SSE `https://api.cybrelay.com/sse` |
 

@@ -1,5 +1,7 @@
 # CybRelay MCP server
 
+[![CybRelay security grade](https://api.cybrelay.com/api/badge/www.cybrelay.com.svg?format=shield)](https://scan.cybrelay.com/?d=www.cybrelay.com)
+
 **Security remediation for AI coding agents. The engine writes the fix. The AI only advises.**
 
 CybRelay is a vulnerability analysis and remediation platform ([cybrelay.com](https://cybrelay.com)). This repository documents its **remote MCP server**, which lets an AI agent (Claude Code, Claude Desktop, Cursor, Windsurf, VS Code, Cline, or your own agent) analyse code, read the findings of your workspace, get a remediation script, and run a passive security scan of a website — all with your workspace API key, paid in credits.

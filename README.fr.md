@@ -1,5 +1,7 @@
 # Serveur MCP CybRelay
 
+[![Note de sécurité CybRelay](https://api.cybrelay.com/api/badge/www.cybrelay.com.svg?format=shield&lang=fr)](https://scan.cybrelay.com/?d=www.cybrelay.com)
+
 **La remédiation de sécurité pour les agents IA de développement. Le moteur écrit la correction. L'IA ne fait que conseiller.**
 
 CybRelay est une plateforme d'analyse et de remédiation de vulnérabilités ([cybrelay.com](https://cybrelay.com)). Ce dépôt documente son **serveur MCP distant** : un agent IA (Claude Code, Claude Desktop, Cursor, Windsurf, VS Code, Cline ou votre propre agent) peut analyser du code, lire les failles de votre espace, obtenir un script de correction et lancer un scan passif d'un site, avec la clé d'API de votre espace, payé en crédits.
